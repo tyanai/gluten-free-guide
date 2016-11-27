@@ -1,0 +1,46 @@
+#####################################################
+# DB Setup
+#####################################################
+use.external.db=true
+db.user=glutenuser
+db.password=user123
+db.ip=localhost
+db.port=3306
+db.scheme=glutenfree
+db.driver=com.mysql.jdbc.Driver
+
+###################################################
+# Email settings
+###################################################
+
+smtpHostName=mail.gfsms.info
+outgoingSmtpServerPort=25
+sslFactory=javax.net.ssl.SSLSocketFactory
+emailFrom=office@celiac.org.il
+replyTo=office@celiac.org.il
+emailUser=celiac@gfguide.info
+emailPassword=bb123456
+emailDebug=false
+smtpAuth=true
+socketFallBack=false
+
+#####################################################
+# Generic Setup
+#####################################################
+
+data.food=/data/GlutenFreeDB.xls
+data.users=/data/GlutenFreeUsers.xls
+code.desc.users=/data/CodeDescription.xls
+gf.site=http://localhost:9090/gfguide
+application.log=logs/log.txt
+activity.log=logs/user_activity.txt
+number.of.sms.characters=350
+max.shared.product.per.company=4
+max.shared.company.per.search=4
+max.non.shared.product=10
+port.modem=12
+validate.cell.number=false
+num.of.statistic.in.memory=10
+num.of.minutes.to.hold.statistic.in.memory=10
+data.upload.email.notification=tayanai@cisco.com
+data.upload.email.notification.admin=tayanai@cisco.com

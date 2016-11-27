@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>Gluten Free Search Engine</display-name>
+  <description>
+    Applet for viewing Gluten Free Products
+  </description>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/rest-context.xml</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <filter>
+		<filter-name>CORSFilter</filter-name>
+		<filter-class>org.celiac.web.rest.CORSFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CORSFilter</filter-name>
+		<url-pattern>/rest/*</url-pattern>
+   </filter-mapping>
+  <servlet>
+    <servlet-name>JobStartup</servlet-name>
+    <servlet-class>org.celiac.web.servlet.JobStartup</servlet-class>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>GetImage</servlet-name>
+    <servlet-class>org.celiac.web.servlet.GetImage</servlet-class>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>2</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>JobEditor</servlet-name>
+    <servlet-class>org.celiac.web.servlet.JobEditor</servlet-class>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>2</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadImage</servlet-name>
+    <servlet-class>org.celiac.web.servlet.UploadImage</servlet-class>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>2</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>SMSServlet</servlet-name>
+    <servlet-class>org.celiac.web.servlet.SMSServlet</servlet-class>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>2</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>GFA</servlet-name>
+    <servlet-class>org.celiac.web.servlet.GFA</servlet-class>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>2</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>GFB</servlet-name>
+    <servlet-class>org.celiac.web.servlet.GFB</servlet-class>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>2</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <display-name>DWR Servlet</display-name>
+    <servlet-name>dwr-invoker</servlet-name>
+    <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <init-param>
+      <param-name>logLevel</param-name>
+      <param-value>WARN</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>cxf-servlet</servlet-name>
+    <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadImage</servlet-name>
+    <url-pattern>/UploadImage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>JobEditor</servlet-name>
+    <url-pattern>/JobEditor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetImage</servlet-name>
+    <url-pattern>/GetImage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SMSServlet</servlet-name>
+    <url-pattern>/sms</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GFA</servlet-name>
+    <url-pattern>/gfa</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GFB</servlet-name>
+    <url-pattern>/gfb</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>dwr-invoker</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>cxf-servlet</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
+  <resource-env-ref>
+    <description>
+      Link to the UserDatabase instance from which we request lists of
+      defined role names.  Typically, this will be connected to the global
+      user database with a ResourceLink element in server.xml or the context
+      configuration file for the Manager web application.
+    </description>
+    <resource-env-ref-name>users</resource-env-ref-name>
+    <resource-env-ref-type>
+      org.apache.catalina.UserDatabase
+    </resource-env-ref-type>
+  </resource-env-ref>
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>Tomcat Manager Application</realm-name>
+  </login-config>
+  <security-role>
+    <description>
+      The role that is required to log in to the gfsms Application
+    </description>
+    <role-name>manager</role-name>
+  </security-role>
+  <error-page>
+    <error-code>401</error-code>
+    <location>/401.jsp</location>
+  </error-page>
+</web-app>

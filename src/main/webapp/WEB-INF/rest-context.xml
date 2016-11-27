@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://cxf.apache.org/jaxrs 
+  http://cxf.apache.org/schemas/jaxrs.xsd">
+
+  <import resource="classpath:META-INF/cxf/cxf.xml" />
+  <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+  <bean id="gfGuideService" class="org.celiac.web.rest.GfGuideRestService" />
+
+  <jaxrs:server id="jaxrsRestService" address="/">
+    <jaxrs:serviceBeans>
+      <ref bean="gfGuideService" />
+    </jaxrs:serviceBeans>
+    <jaxrs:providers>
+      <bean id="securityException" class="org.celiac.web.rest.SecurityExceptionMapper"/>
+    </jaxrs:providers>
+  </jaxrs:server>
+
+</beans>

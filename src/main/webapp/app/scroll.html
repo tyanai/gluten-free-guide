@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="user-scalable=no, width=device-width" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<link rel="icon" sizes="192x192" href="img/android-icon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+<link rel="apple-touch-startup-image" href="img/startup.png" />
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.json">
+
+
+<script src="lib/jquery-2.1.4.min.js"></script>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/bootstrap-rtl.min.css">
+<link rel="stylesheet" href="css/bootstrap-combobox.css">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/jquery.validate.min.js"></script>
+<script src="lib/jquery.androidSpinner-min.js"></script>
+<script src="lib/bootstrap-combobox.js"></script>
+
+<script src="js/app.js"></script>
+<link href="css/app.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="css/scroll_style.css"/>
+<!--[if IE]>
+	<link type='text/css' href='css/scroll_style_ie.css' rel='stylesheet' media='screen' />
+<![endif]-->
+<script type="text/javascript" src="lib/iphone-scroller.js"></script>
+</head>
+<body>
+<div id="selectModal" class="modal fade" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      
+      <div id="iphone-scrollcontainer" class="modal-body" style="padding: 0px;border-bottom: 1px solid #000000;">
+	  <ul id="iphone-search">
+    	<li><a href="#A" title="A">A</a></li>
+        <li><a href="#B" title="B">B</a></li>
+        <li><a href="#C" title="C">C</a></li>
+        <li><a href="#D" title="D">D</a></li>
+        <li><a href="#E" title="E">E</a></li>
+        <li><a href="#F" title="F">F</a></li>
+        <li><a href="#G" title="G">G</a></li>
+        <li><a href="#H" title="H">H</a></li>
+        <li><a href="#I" title="I">I</a></li>
+        <li><a href="#J" title="J">J</a></li>
+        <li><a href="#K" title="K">K</a></li>
+        <li><a href="#L" title="L">L</a></li>
+        <li><a href="#M" title="M">M</a></li>
+        <li><a href="#N" title="N">N</a></li>
+        <li><a href="#O" title="O">O</a></li>
+        <li><a href="#P" title="P">P</a></li>
+        <li><a href="#Q" title="Q">Q</a></li>
+        <li><a href="#R" title="R">R</a></li>
+        <li><a href="#S" title="S">S</a></li>
+        <li><a href="#T" title="T">T</a></li>
+        <li><a href="#U" title="U">U</a></li>
+        <li><a href="#V" title="V">V</a></li>
+        <li><a href="#W" title="W">W</a></li>
+        <li><a href="#X" title="X">X</a></li>
+        <li><a href="#Y" title="Y">Y</a></li>
+        <li><a href="#Z" title="Z">Z</a></li>
+    </ul>
+	<ul id="iphone-scroll">
+		<li>
+        <div id="nav-indicator-fixed"></div>
+        <a name="A"></a>
+		<div class="nav-indicator" id="nav-a">A</div>
+			<ul>
+				<li><a href="http://en.wikipedia.org/wiki/Amsterdam" title="Amsterdam"><strong>Amsterdam</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Arnhem" title="Arnhem"><strong>Arnhem</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Assen" title="Assen"><strong>Assen</strong></a></li>
+                <li><a href="http://en.wikipedia.org/wiki/Apeldoorn" title="Apeldoorn"><strong>Apeldoorn</strong></a></li>
+                <li><a href="http://en.wikipedia.org/wiki/Alkmaar" title="Alkmaar"><strong>Alkmaar</strong></a></li>
+                <li><a href="http://en.wikipedia.org/wiki/Almelo" title="Almelo"><strong>Almelo</strong></a></li>
+			</ul>
+		</li>
+		<li>
+        <a name="B"></a>
+		<div class="nav-indicator" id="nav-b">B</div>
+			<ul>
+				<li><a href="http://en.wikipedia.org/wiki/Bolsward" title="Bolsward"><strong>Bolsward</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Buren" title="Buren"><strong>Buren</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Bergen_op_Zoom" title="Bergen op Zoom"><strong>Bergen op Zoom</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Breda" title="Breda"><strong>Breda</strong></a></li>
+			</ul>	
+		</li>
+		<li>
+        <a name="C"></a>
+		<div class="nav-indicator" id="nav-c">C</div>
+			<ul>
+				<li><a href="http://en.wikipedia.org/wiki/Culemborg" title="Culemborg"><strong>Culemborg</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Coevorden" title="Coevorden"><strong>Coevorden</strong></a></li>
+			</ul>
+		</li>
+		<li>
+        <a name="D"></a>
+		<div class="nav-indicator" id="nav-d">D</div>
+			<ul>
+				<li><a href="http://en.wikipedia.org/wiki/Dordrecht" title="Dordrecht"><strong>Dordrecht</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Delfzijl" title="Delfzijl"><strong>Delfzijl</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Doetinchem" title="Doetinchem"><strong>Doetinchem</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Drachten" title="Drachten"><strong>Drachten</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Dronten" title="Dronten"><strong>Dronten</strong></a></li>
+			</ul>	
+		</li>
+		<li>
+        <a name="E"></a>
+		<div class="nav-indicator" id="nav-e">E</div>
+			<ul>
+				<li><a href="http://en.wikipedia.org/wiki/Emmen_(Netherlands)" title="Emmen"><strong>Emmen</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Ede,_Netherlands" title="Ede"><strong>Ede</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Eindhoven" title="Eindhoven"><strong>Eindhoven</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Enschede" title="Enschede"><strong>Enschede</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Edam,_Netherlands" title="Edam"><strong>Edam</strong></a></li>
+			</ul>	
+		</li>
+        <li>
+        <a name="F"></a>
+		<div class="nav-indicator" id="nav-f">F</div>
+			<ul>
+				<li><a href="http://en.wikipedia.org/wiki/Flushing,_Netherlands" title="Flushing"><strong>Flushing</strong></a></li>
+			</ul>
+		</li>
+		<li>
+        <a name="G"></a>
+		<div class="nav-indicator" id="nav-g">G</div>
+			<ul>
+				<li><a href="http://en.wikipedia.org/wiki/Groenlo" title="Groenlo"><strong>Groenlo</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Groningen_(city)" title="Groningen"><strong>Groningen</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Sittard-Geleen" title="Geleen"><strong>Geleen</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Geertruidenberg" title="Geertruidenberg"><strong>Geertruidenberg</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/Grave,_Netherlands" title="Grave"><strong>Grave</strong></a></li>
+                <li><a href="http://en.wikipedia.org/wiki/Gouda" title="Gouda"><strong>Gouda</strong></a></li>
+			</ul>	
+		</li>
+        <li>
+        <a name="I"></a>
+		<div class="nav-indicator" id="nav-i">Info</div>
+			<ul>
+				<li><a href="http://www.marcofolio.net/" title="Marcofolio.net"><strong>Marcofolio.net</strong></a></li>
+				<li><a href="http://www.teehanlax.com/blog/?p=447" title="iPhone GUI"><strong>Tehan+Lax</strong></a></li>
+				<li><a href="http://validator.w3.org/check?uri=referer" title="XHTML Valid"><strong>XHTML</strong></a></li>
+				<li><a href="http://jigsaw.w3.org/css-validator/check/referer" title="CSS Valid"><strong>CSS</strong></a></li>
+                <li><a href="http://jquery.com/" title="jQuery"><strong>jQuery</strong></a></li>
+                <li><a href="http://www.apple.com/iphone/" title="iPhone"><strong>Apple</strong></a></li>
+				<li><a href="http://en.wikipedia.org/wiki/List_of_cities_in_the_Netherlands" title="List of cities in the Netherlands"><strong>Wikipedia</strong></a></li>
+			</ul>	
+		</li>
+	</ul>
+      </div>
+      <div class="modal-footer">
+         <input type="button" class="btn btn-primary btn-lg btn-block" data-dismiss="modal" value="ביטול"/>
+      </div>
+  </div>
+  
+  </div>
+</div>
+
+
+</body>
+</html>

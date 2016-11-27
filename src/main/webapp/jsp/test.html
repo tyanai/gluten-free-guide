@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="RTL">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Autocomplete - Remote datasource</title>
+	<link rel="stylesheet" href="../include/jquery.ui.all.css">
+<script src="../include/jquery-1.5.1.js"></script>
+<script src="../include/jquery.ui.core.js"></script>
+<script src="../include/jquery.ui.widget.js"></script>
+<script src="../include/jquery.ui.position.js"></script>
+<script src="../include/jquery.ui.autocomplete.js"></script>
+<link rel="stylesheet" href="../include/demos.css">
+	<style>
+	.ui-autocomplete-loading { background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat; }
+	</style>
+	
+</head>
+<body>
+
+
+
+<TD  colspan="1"  style="width: 50%" ><input type="text" value="" id="productSelect3" name="productSelect3" >
+	<script>
+		$(function() { 
+			$("#productSelect3").autocomplete
+        ({ 
+            source: function( request, response )
+            {                      
+                $.ajax(
+                { 
+                    url: "getProductData.jsp",
+                    data: {
+                            term: request.term, 
+                          },        
+                    type: "POST",  
+                    dataType: "json",                                                                                                                           
+                    success: function( data ) 
+                    {
+                        response( $.map( data, function( item ) 
+                        {
+                            return{
+                                    label: item.label,
+                                    value: item.value                                 
+                                   }
+                        }));
+                    }
+                });                
+            },
+            minLength: 3
+        });
+		});
+	</script>
+	
+	</TD>
+
+
+
+
+
+
+
+</body>
+</html>

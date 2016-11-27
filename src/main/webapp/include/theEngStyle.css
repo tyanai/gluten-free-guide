@@ -1,0 +1,272 @@
+/* initial definition of the BODY tag */
+body {
+	background : White;
+	COLOR: #000000; 
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif, Miriam Transparent; 
+	FONT-SIZE: 10px; 
+}
+
+
+.headerUnderLine {
+	COLOR: #CC9900;
+	FONT-WEIGHT: BOLD;
+	background-color: #FFFFCC;
+	FONT-SIZE: 10px; 
+	padding: 3;
+	BORDER-BOTTOM: #666666 solid 1px;
+	
+}
+
+.headerUnderLine2 {
+	COLOR: #CC9900;
+	FONT-WEIGHT: BOLD;
+	background-color: #FFFFCC;
+	FONT-SIZE: 13px; 
+	padding: 3;
+	BORDER-BOTTOM: #666666 solid 1px;
+}
+
+.headerUnderLine2Heb {
+	COLOR: #CC9900;
+	FONT-WEIGHT: BOLD;
+	background-color: #FFFFCC;
+	FONT-SIZE: 13px; 
+	padding: 3;
+	BORDER-BOTTOM: #666666 solid 1px;
+	text-align: left;
+	MARGIN-LEFT: 10px;
+	FONT-FAMILY: Arial;
+}
+
+.headerUnderLine3 {
+	COLOR: #000000;
+	FONT-WEIGHT: BOLD;
+	background-color: #FFFFFF;
+	FONT-SIZE: 13px; 
+	padding: 3;
+	BORDER-BOTTOM: #666666 solid 1px;
+}
+
+.headerUnderLineForMultipleTrue {
+	COLOR: #000000;
+	background-color: #f5f5e1;
+	FONT-SIZE: 13px; 
+	padding: 3;
+}
+
+.headerUnderLineForMultipleFalse {
+	COLOR: #000000;
+	background-color: #FFFFFF;
+	FONT-SIZE: 13px; 
+	padding: 3;
+}
+
+.headerUnderLine3Heb {
+	COLOR: #000000;
+	FONT-WEIGHT: BOLD;
+	background-color: #FFFFFF;
+	FONT-SIZE: 13px; 
+	FONT-FAMILY: Arial, Miriam Transparent, Verdana, Helvetica, sans-serif; 
+	padding: 3;
+	BORDER-BOTTOM: #666666 solid 1px;
+	
+}
+
+
+
+.headerUnderLine4 {
+	COLOR: #000000;
+	FONT-WEIGHT: BOLD;
+	background-color: #FFFFCC;
+	FONT-SIZE: 13px; 
+	padding: 3;
+	BORDER-BOTTOM: #666666 solid 1px;
+}
+
+.headerUnderLine4NotBold {
+	COLOR: #000000;
+	background-color: #FFFFCC;
+	FONT-SIZE: 13px; 
+	padding: 3;
+	BORDER-BOTTOM: #666666 solid 1px;
+}
+
+.headerNotUnderLine {
+	COLOR: #000000;
+	background-color: #FFFFCC;
+	FONT-SIZE: 13px; 
+	padding: 3;
+}
+
+
+.textfield {
+	FONT-SIZE: 10px; 
+	COLOR: #000000; 
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif, Miriam Transparent; 
+	text-align: left;
+}
+
+
+
+
+
+.textfieldHeb {
+	FONT-SIZE: 13px; 
+	COLOR: #000000; 
+	FONT-FAMILY: Arial, Miriam Transparent, Verdana, Helvetica, sans-serif; 
+	text-align: left;
+	MARGIN-LEFT: 10px;
+	
+	
+}
+
+.textBoxBHeb {
+	FONT-SIZE: 12px; 
+	COLOR: #000000; 
+	FONT-FAMILY: Arial, Miriam Transparent, Verdana, Helvetica, sans-serif; 
+	width:400px;
+	text-align: left;
+}
+
+.textBoxBHebForEmail {
+	FONT-SIZE: 12px; 
+	COLOR: #000000; 
+	FONT-FAMILY: Arial, Miriam Transparent, Verdana, Helvetica, sans-serif; 
+	text-align: left;
+}
+
+.headerUnderLineHeb {
+	COLOR: #CC9900;
+	FONT-WEIGHT: BOLD;
+	FONT-FAMILY: Arial, Miriam Transparent, Verdana, Helvetica, sans-serif; 
+	background-color: #FFFFCC;
+	FONT-SIZE: 12px; 
+	padding: 3;
+	BORDER-BOTTOM: #666666 solid 1px;
+	text-align: left;
+	MARGIN-LEFT: 10px;
+}
+
+.headerHeb {
+	COLOR: #000000;
+	FONT-WEIGHT: BOLD;
+	FONT-FAMILY: Arial, Miriam Transparent, Verdana, Helvetica, sans-serif; 
+	FONT-SIZE: 12px; 
+	padding: 3;
+	text-align: left;
+	MARGIN-LEFT: 10px;
+}
+
+
+.textSmall {
+	FONT-WEIGHT: NORMAL;
+	FONT-SIZE: 10px; 
+}
+
+
+.textSmallHeaderB {
+	FONT-SIZE: 10px; 
+	COLOR: #CC9900;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif, Miriam Transparent;
+	FONT-WEIGHT: BOLD;
+	
+}
+
+
+
+.text {
+	FONT-SIZE: 12px; 
+	COLOR: #000000;	
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif, Miriam Transparent;
+	FONT-WEIGHT: normal;
+}
+
+.textB {
+	FONT-SIZE: 12px; 
+	FONT-WEIGHT: BOLD;
+}
+
+
+.titleBigHeb {
+	FONT-SIZE: 22px; 
+	COLOR: #CC9966;	
+	FONT-FAMILY: Miriam Transparent, Helvetica, sans-serif;
+	FONT-WEIGHT: bold; 
+	
+	text-align: center;
+}
+
+.textBox {
+	FONT-SIZE: 10px; 
+	COLOR: #000000; 
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif, Miriam Transparent; 
+	background-color: #ECECEC;
+	width:82px;}
+
+
+.textBoxB {
+	FONT-SIZE: 12px; 
+	COLOR: #000000; 
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif, Miriam Transparent; 
+	width:400px;
+	text-align: left
+}
+
+.textBoxBGrayed {
+	FONT-SIZE: 12px; 
+	COLOR: gray; 
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif, Miriam Transparent; 
+	width:400px;
+	background-color: #ECECEC;
+	text-align: left
+}
+
+
+
+.button {
+	FONT-SIZE: 12px; 
+	COLOR: #000000; 
+	FONT-FAMILY: Arial, Verdana,  Helvetica, sans-serif, Miriam Transparent; 
+	background-color: #CC9966;
+	FONT-WEIGHT: BOLD;
+	BORDER-BOTTOM: #666666 solid 1px;
+	BORDER-LEFT: #666666 solid 1px;
+	BORDER-RIGHT: #666666 solid 1px;
+	BORDER-TOP: #666666 solid 1px;
+}
+
+
+hr {
+	COLOR: #CC9966;
+	height:1px;
+}
+
+
+.frameTable {
+	background-color: #DDDDDD;
+}
+.frameTableT {
+	background-color: #FFFFFF;
+}
+
+.errorB {
+  COLOR: Red;
+	FONT-SIZE: 12px; 
+	FONT-WEIGHT: BOLD;
+}
+
+.error{
+	COLOR: Red;
+	FONT-WEIGHT: BOLD;	
+	FONT-SIZE: 10px;
+	padding: 3px;
+}
+
+
+.resultMessage{
+	COLOR: Green;
+	FONT-WEIGHT: BOLD;	
+	FONT-SIZE: 12px;
+	padding: 3px;
+	text-align: left
+}

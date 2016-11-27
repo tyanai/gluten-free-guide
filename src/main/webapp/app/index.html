@@ -1,0 +1,325 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="user-scalable=no, width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0"/>
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<link rel="icon" sizes="192x192" href="img/android-icon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+<link rel="apple-touch-startup-image" href="img/startup.png" />
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.json">
+
+
+<script src="lib/jquery-2.1.4.min.js"></script>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/bootstrap-rtl.min.css">
+<link rel="stylesheet" href="css/autocomplete.css">
+
+<script src="bootstrap/js/bootstrap.min.js"  charset="utf-8"></script>
+<script src="lib/jquery.validate.min.js"  charset="utf-8"></script>
+<script src="lib/jquery.androidSpinner-min.js"  charset="utf-8"></script>
+
+
+<script src="lib/typeahead.jquery.js"  charset="utf-8"></script>
+
+
+
+<script src="js/app.js"  charset="utf-8"></script>
+<script src="js/html_forms.js"  charset="utf-8"></script>
+<script src="js/byCategory.js"  charset="utf-8"></script>
+<script src="js/byManufactor.js"  charset="utf-8"></script>
+<script src="js/byFreeStyle.js"  charset="utf-8"></script>
+
+<link href="css/app.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="css/scroll_style.css"/>
+<!--[if IE]>
+	<link type='text/css' href='css/scroll_style_ie.css' rel='stylesheet' media='screen' />
+<![endif]-->
+<script type="text/javascript" src="lib/iphone-scroller.js" charset="utf-8"></script>
+
+<title>GFGuide - מדריך למזון ללא גלוטן - עמותת צליאק בישראל</title>
+</head>
+<body>
+<div id="gfguide_body" style="display: none;" >
+<div class="navbar-fixed-top">
+<div class="navbar-blue navbar-default navbar-header-logo">
+				<img class="logo-image-class" src="img/celiac_logo.gif" height="40px">
+</div>
+<div class="navbar-blue navbar-default navbar-main" role="navigation">
+        <div  class="container">
+			
+			 <!-- Brand and toggle get grouped for better mobile display -->
+            <div  class="navbar-header navbar-default" >
+                <button  type="button" class="navbar-toggle navbar-user" data-toggle="collapse" data-target="#navbar-collapse-2" style="float:left;" >
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="glyphicon glyphicon-user"></span>
+                   
+                </button>
+
+                <button type="button" class="navbar-toggle navbar-menu" data-toggle="collapse" data-target="#navbar-collapse-1" style="float:right; margin-right: 15px;">
+                   <span id="gfguide_button_label" class="button-label"><span class="glyphicon glyphicon-ok" style="color:#424882"></span>&nbsp;&nbsp;חיפוש חופשי</span>
+					<div class="button-bars">
+						<span class="glyphicon glyphicon-menu-hamburger"></span>
+						
+					</div>
+                </button>
+
+               
+            </div>
+
+            
+            <!-- User menu to show on screens < 768px -->
+            <div  class="collapse navbar-collapse navbar-default" id="navbar-collapse-2" >
+                <ul class="nav navbar-nav client-nav navbar-right">
+					<li><a href="javascript:removeCredentialFromDB();"><span class="glyphicon glyphicon-log-out" style="color:#424882"></span>&nbsp;&nbsp;יציאה</a></li>
+					<li class="nav-divider"></li>
+					<li><a href="../index_old.jsp" target="_blank"><span class="glyphicon glyphicon-user" style="color:#424882"></span>&nbsp;&nbsp;הפרטים שלי</a></li>
+					<li class="nav-divider"></li>
+					<li><a href="../index_old.jsp" ><span class="glyphicon glyphicon-step-backward" style="color:#424882"></span>&nbsp;&nbsp;אתר בגרסא ישנה</a></li>
+                </ul>
+            </div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-default" id="navbar-collapse-1" >
+                <ul class="nav navbar-nav client-nav navbar-right">
+                   <li><a id="freetext" href="javascript:switchFlow('freetext',true);"><span class="glyphicon glyphicon-ok" style="color:#424882"></span>&nbsp;&nbsp;חיפוש חופשי</a></li>	
+					<li class="nav-divider"></li>
+					<li><a id="bymanufactor" href="javascript:switchFlow('bymanufactor',true);">חיפוש לפי יצרן </a></li>
+					<li class="nav-divider"></li>
+					<li><a id="bycategory" href="javascript:switchFlow('bycategory',true);">חיפוש לפי קטגוריה</a></li>
+                    
+                </ul>
+				 
+            </div>
+
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+		
+ </div>   
+ </div>
+ <div id="gfguide_flow_category" class="margin-menus" style="display: none;" >
+	<div class="form-group" style="margin-top:20px;">
+        <label for="platform" class="control-label col-xs-1 gfguide_label">קטגוריה:</label>
+        <div class="col-sm-3 jfguide_width" >
+           <button id="byCategoryButton1" class="btn btn-primary btn-lg btn-block"><span class="numberCircle" style="float:right;">1</span><p dir="ltr" id="categoryName1" class ="buttonp">בחר קטגוריה</p></button>          
+		</div>
+		
+	</div>
+	
+	<div class="form-group">
+        <label for="platform" class="control-label col-xs-1 gfguide_label">חברה:</label>
+        <div class="col-sm-3 jfguide_width"  >
+           <button id="byCategoryButton2" class="btn btn-default btn-lg btn-block"><span class="numberCircle" style="float:right;">2</span><p dir="ltr" id="manufactorName2" class ="buttonp">בחר יצרן</p></button>
+		</div>
+	</div>
+	<div class="form-group">
+        <label for="platform" class="control-label col-xs-1 gfguide_label" >מוצר:</label>
+        <div class="col-sm-3 jfguide_width" >
+           <button id="byCategoryButton3" class="btn btn-default btn-lg btn-block"><span class="numberCircle" style="float:right;">3</span><p dir="ltr" id="productName3" class ="buttonp">בחר מוצר</p></button>
+		</div>
+	</div>
+</div>
+
+<div id="gfguide_flow_manufactor" class="margin-menus" style="display: none;" >
+	<div class="form-group" style="margin-top:20px;">
+        <label for="platform" class="control-label col-xs-1 gfguide_label">יצרן:</label>
+        <div class="col-sm-3 jfguide_width" >
+           <button id="byManufactorButton1" class="btn btn-primary btn-lg btn-block"><span class="numberCircle" style="float:right;">1</span><p dir="ltr" id="manufactorName1" class ="buttonp">בחר יצרן</p></button>          
+		</div>
+		
+	</div>
+	
+	<div class="form-group">
+        <label for="platform" class="control-label col-xs-1 gfguide_label">מוצר:</label>
+        <div class="col-sm-3 jfguide_width"  >
+           <button id="byManufactorButton2" class="btn btn-default btn-lg btn-block"><span class="numberCircle" style="float:right;">2</span><p dir="ltr" id="productName2" class ="buttonp">בחר מוצר</p></button>
+		</div>
+	</div>
+	<div class="form-group">
+        <label for="platform" class="control-label col-xs-1 gfguide_label" >קטגוריה:</label>
+        <div class="col-sm-3 jfguide_width" >
+           <button id="byManufactorButton3" class="btn btn-default btn-lg btn-block"><span class="numberCircle" style="float:right;">3</span><p dir="ltr" id="categoryName3" class ="buttonp">בחר קטגוריה</p></button>
+		</div>
+	</div>
+</div>
+
+<div id="gfguide_flow_free" class="margin-menus"  >
+	
+	  
+  		<div class="col-sm-4 col-sm-offset-2" style="padding-bottom: 15px;">
+    		<div id="the-products" class="input-group">		
+    			<span class="input-group-btn">
+        		<button id="submitFreeProductClean" class="btn btn-primary btn-lg" type="button">X</button>
+     		 	</span>
+      			<input id="freeProductValue" type="text" class="form-control input-lg" dir="rtl" style="border-radius: 0px;" placeholder="שם מוצר">
+      			<span class="input-group-btn">
+        		<button id="submitFreeProduct" class="btn btn-primary btn-lg" type="button">בדיקה</button>
+     		 	</span>
+    		</div>
+    		
+  		</div>
+  	
+  		<div class="col-sm-4">
+    		<div id="the-manufactors" class="input-group">
+    			<span class="input-group-btn">
+        		<button id="submitFreeManufactorClean" class="btn btn-primary btn-lg" type="button">X</button>
+     		 	</span>
+      			<input id="freeManufactorValue" type="text" class="form-control input-lg" style="border-radius: 0px;"  dir="rtl"  placeholder="שם יצרן">
+      			<span class="input-group-btn">
+        		<button id="submitFreeManufactor" class="btn btn-primary btn-lg" type="button">בדיקה</button>
+     		 </span>
+    		</div>
+  		</div>
+  		
+	
+	
+</div>
+
+
+
+</div>
+
+<!--select modal-->
+<div id="selectModal" class="modal fade" aria-hidden="true">
+  <div class="modal-dialog gfguide_modal" >
+  <div class="modal-content">
+      <div id="searchHeader" class="modal-header" >
+                <button id="modalExit" type="button" class="btn btn-primary pull-left" data-dismiss="modal" aria-hidden="true">יציאה&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span></button>
+                <button id="backButton" type="button" class="btn btn-primary pull-right" aria-hidden="true"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;&nbsp;חזרה</button>
+                <h4 id="modal_title_browse" class="modal-title" style="text-align: center;margin-top: 5px;"></h4>         
+       </div>
+       <div id="resultHeader" class="modal-header" style="border-top-left-radius: 5px; border-top-right-radius: 5px;" >
+            <img id="recomendationHeaderImg" class="logo-image-login"  height="80px">
+            <h1 id="recomendationHeaderText" style="font-family: sans-serif; float:right;margin-right:15px"></h1>  
+              
+       </div>
+       
+      <div id="iphone-scrollcontainer" class="modal-body" style="padding: 0px;border-bottom: 1px solid #000000; border-top: 1px solid #000000; ">
+	  <ul id="iphone-search">
+    	<li><a href="#A" title="A">A</a></li>
+        <li><a href="#D" title="D">D</a></li>
+        <li><a href="#G" title="G">G</a></li>
+        <li><a href="#J" title="J">J</a></li>
+        <li><a href="#M" title="M">M</a></li>
+        <li><a href="#O" title="O">O</a></li>
+        <li><a href="#R" title="R">R</a></li>
+        <li><a href="#U" title="U">U</a></li>
+        <li><a href="#W" title="W">W</a></li>
+        <li><a href="#Z" title="Z">Z</a></li>
+        <li><a style="font-family: sans-serif;" href="#alef" title="א">א</a></li>
+        <li><a style="font-family: sans-serif;" href="#daled" title="ד">ד</a></li>
+        <li><a style="font-family: sans-serif;" href="#zain" title="ז">ז</a></li>
+        <li><a style="font-family: sans-serif;" href="#yod" title="י">י</a></li>
+        <li><a style="font-family: sans-serif;" href="#mem" title="מ">מ</a></li>
+        <li><a style="font-family: sans-serif;" href="#ain" title="ע">ע</a></li>
+        <li><a style="font-family: sans-serif;" href="#kof" title="ק">ק</a></li>
+        <li><a style="font-family: sans-serif;" href="#taf" title="ת">ת</a></li>
+        
+    </ul>
+	<ul id="iphone-scroll">
+		
+	</ul>
+	  
+      </div>
+      <div id="selectorFotter" class="modal-footer">
+         <input id="endSearch" type="button" class="btn btn-success btn-lg" data-dismiss="modal" value=""/>
+         <input id="backButtonDown" type="button" class="btn btn-primary btn-lg pull-right"  value="חזרה">
+          
+      </div>
+  </div>
+  
+  </div>
+</div>
+<!-- select modal -->
+
+<!--select type modal-->
+<div id="selectTypeModal" class="modal fade" aria-hidden="true">
+  <div id="mainModalDialog" class="modal-dialog gfguide_modal" >
+  <div class="modal-content">
+      <div  class="modal-header" >
+                <h4 id="modal_title_browse" class="modal-title" style="text-align: center;margin-top: 5px;">בחר סוג חיפוש</h4>         
+       </div>
+      
+       
+      <div  class="modal-body" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+      	<div class="form col-md-12 center-block">
+      	<div class="form-group">
+	  	<button id="startTypeFree" class="btn btn-primary btn-lg btn-block">חיפוש חופשי</button>
+	  	<button id="startTypeManufactor" class="btn btn-primary btn-lg btn-block">חיפוש לפי יצרן</button>
+	  	<button id="startTypeCategory" class="btn btn-primary btn-lg btn-block">חיפוש לפי קטגוריה</button>
+	  	</div>
+	  	</div>
+      </div>
+      <div class="modal-footer">
+         
+      </div>
+  </div>
+  
+  </div>
+</div>
+<!-- select type modal -->
+
+<!--big image modal-->
+<div id="bigImageModal" class="modal fade" aria-hidden="true">
+  <div class="modal-dialog gfguide_modal" >
+  <div class="modal-content">
+     
+       
+      <div  id="largeImageModal" class="modal-body" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+      		<img id="largeImage" style="display: table;margin: 0 auto;"/>
+      </div>
+      <div class="modal-footer">
+         <button class="btn btn-primary btn-lg btn-block" data-dismiss="modal" aria-hidden="true">סגירה</button>
+      </div>
+  </div>
+  
+  </div>
+</div>
+<!-- big image modal -->
+
+
+<!-- login modal -->
+<div id="loginModal" class="modal fade" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+		 
+			<img class="logo-image-login" src="img/logoceliakmed.gif" height="80px">
+					 
+          <h1 style="color:#286090; font-family: cursive; float:right;margin-right:15px" class="text-center">GFGuide</h1>
+      </div>
+      <div id="login_main_body" class="modal-body">
+          <form id="loginForm" class="form col-md-12 center-block" method="POST">
+            <div class="form-group">
+              <input type="text" name='username' id='username' class="form-control input-lg" placeholder="שם משתמש">
+            </div>
+            <div class="form-group">
+              <input type="password"  name='password' id='password'  class="form-control input-lg" placeholder="סיסמא">
+			  <label id="login_error" class="login_error"></label>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block">כניסה</button>
+              <span style="padding-top:10px" class="pull-left"><a href="http://gfguide.info/jsp/newUser.jsp" target="_blank">הרשמה</a></span><span style="padding-top:10px" class="pull-right"><a href="http://gfguide.info/jsp/lostIdentity.jsp" target="_blank">שכחתי סיסמא</a></span>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+         
+      </div>
+  </div>
+  </div>
+</div>
+<!--  login modal -->
+
+</body>
+</html>
