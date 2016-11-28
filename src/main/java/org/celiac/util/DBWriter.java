@@ -582,7 +582,7 @@ public class DBWriter {
 		
 		if (table != null) {
 			Logger.print("Dropping table '" + table + "'");
-			String query = "DROP TABLE `" + schemaName + "`.`" + table;
+			String query = "DROP TABLE `" + schemaName + "`.`" + table + "`";
 			try {
 				// Create a PreparedStatement based on the query in query
 				PreparedStatement pst = connection.prepareStatement(query);
@@ -610,7 +610,7 @@ public class DBWriter {
 				 */
 				Logger.print("Dropping table '" + tableName + "'");
 				
-				String query = "DROP TABLE `" + schemaName + "`.`" + tableName;
+				String query = "DROP TABLE `" + schemaName + "`.`" + tableName + "`";
 
 				try {
 					// Create a PreparedStatement based on the query in query
@@ -619,7 +619,7 @@ public class DBWriter {
 					pst.close();
 
 				} catch (Exception e) {
-					Logger.print("ERROR - Failed to dump table '" + tableName + "'");
+					Logger.print("ERROR - Failed to dump table '" + schemaName + "`.`" + tableName + "'");
 					e.printStackTrace();
 
 				}
