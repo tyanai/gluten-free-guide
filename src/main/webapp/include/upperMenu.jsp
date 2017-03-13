@@ -69,20 +69,7 @@
 		</form>
 			</td>
 		</tr>
-		<tr>
-	  	<td>	
-		<form name="console_form" action="../jsp/trufot.jsp" method="POST" target="_blank">
-		<input name="console" type="submit" target="_blank" id="console" value="תרופות ותוספי מזון" style="width: 100%" class="button" enabled onMouseOver="this.style.background = '#d5e0e6';" onMouseOut="this.style.background = '#e4e4e4';"  onSubmit="window.open('', '_blank')">	
-		</form>
-			</td>
-		</tr>
-		<tr>
-	  	<td>	
-		<form name="console_form" action="../jsp/cosmetic.jsp" method="POST" target="_blank">
-		<input name="console" type="submit" target="_blank" id="console" value="מוצרי טיפוח" style="width: 100%" class="button" enabled onMouseOver="this.style.background = '#d5e0e6';" onMouseOut="this.style.background = '#e4e4e4';"  onSubmit="window.open('', '_blank')">	
-		</form>
-			</td>
-		</tr>
+		
 		<%}%>
 		
 		

@@ -1,6 +1,6 @@
 		<%@ page contentType="text/html; charset=UTF-8"%>
 		
-	<table border="0">
+	<!--table border="0">
 	<tr><td>
 			
 			
@@ -53,7 +53,7 @@
 	</td></tr>
 	
   </td></tr>
-  </table>
+  </table-->
 	
 		
 		
