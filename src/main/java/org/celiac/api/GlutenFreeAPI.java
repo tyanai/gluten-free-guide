@@ -15,7 +15,7 @@ import org.celiac.util.database.GFQuery;
 
 public class GlutenFreeAPI {
 
-	public String product = null;
+	public String product =  null;
 	public String company = null;
 	public String category = null;
 	GFSearchFacade gfsearch = null;
