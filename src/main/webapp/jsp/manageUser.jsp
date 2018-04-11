@@ -760,7 +760,11 @@ if (action != null){
             <OPTION VALUE="sim" ><%=org.celiac.util.TemplateReader.getHebrewMapWord("USER")%>
           	<OPTION VALUE="mitnadev" selected="selected"><%=org.celiac.util.TemplateReader.getHebrewMapWord("MITNADEV")%>
           	<OPTION VALUE="admin" ><%=org.celiac.util.TemplateReader.getHebrewMapWord("ADMIN")%>
-          		
+                    
+         <%}else if ((PERMISSIONS != null) && PERMISSIONS.equals("uploader")) { %>
+            <OPTION VALUE="uploader" >uploader
+          	
+                    
           <%} else{%>
             <OPTION VALUE="sim" selected="selected"><%=org.celiac.util.TemplateReader.getHebrewMapWord("USER")%>
           	<OPTION VALUE="mitnadev" ><%=org.celiac.util.TemplateReader.getHebrewMapWord("MITNADEV")%>

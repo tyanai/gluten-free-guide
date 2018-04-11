@@ -326,7 +326,8 @@ public class ResponseMaker {
 		words[1] = site;
 		words[2] = user;
 		words[3] = password;
-		words[4] = site + "/gfa?user=" + user + "-" + password;
+		//words[4] = site + "/gfa?user=" + user + "-" + password;
+                words[4] = site + "/app";
 		
 		return OutputStringUtil.treatOutput(words, template);
 	}

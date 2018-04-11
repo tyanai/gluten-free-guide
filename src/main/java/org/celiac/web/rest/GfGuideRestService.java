@@ -1,10 +1,12 @@
 package org.celiac.web.rest;
 
+import java.io.InputStream;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -55,6 +57,24 @@ public class GfGuideRestService {
 		service.validateRestUser(headers);
 		return service.web_check(query.getProduct(), query.getManufactor(), query.getCategory());
 	}
+        
+        @POST
+        @Path("/upload_users")
+        @Produces(APPLICATION_JSON)
+        @Consumes("application/octet-stream")
+        public StringDao upload_users(InputStream fileInputStream) throws Throwable {
+                StringDao output = new StringDao();
+                boolean result = false;
+                try{
+                    service.validateRestUser(headers);
+                    result = service.validateInputUserFile(fileInputStream);
+                } catch (Exception e){
+                    output.setValue("Failed to upload users. " + e.getMessage());
+                }
+                if (result) output.setValue("OK");
+                
+		return output;
+        }
 	
 	@GET
 	@Path("/web_login_validate")

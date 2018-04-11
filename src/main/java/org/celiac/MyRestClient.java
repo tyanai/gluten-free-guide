@@ -1,5 +1,11 @@
 package org.celiac;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.celiac.datatype.ListDao;
 import org.celiac.datatype.StringDao;
@@ -9,10 +15,13 @@ public class MyRestClient {
 
    public static void main(String[] args) throws Exception{
 	   //System.out.println(new Date().getTime());
-      //WebClient client = WebClient.create("http://localhost:9090/gfguide","tal","b1234",null);
-	  WebClient client = WebClient.create("http://www.gfguide.info:6880","tal","b1234",null);
+           WebClient client = WebClient.create("http://localhost:8080/gfguide","faf","asfa",null);
+	  //WebClient client = WebClient.create("http://www.gfguide.info:6880","asfaf","asfafa",null);
 	   
-	   
+	   File file = new File("C:\\Users\\tyanai\\Desktop\\guideusers.xlsx");
+            InputStream in = new FileInputStream(file);
+            StringDao output = client.path("/rest/upload_users").accept("application/octet-stream").post(Entity.entity(in, MediaType.APPLICATION_OCTET_STREAM),StringDao.class);
+          
 	   
 	 /*
 	  

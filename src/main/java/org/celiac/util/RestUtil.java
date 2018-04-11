@@ -1,5 +1,6 @@
 package org.celiac.util;
 
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -18,6 +19,7 @@ import org.celiac.web.bean.User;
 import org.celiac.web.rest.NotAuthorizedException;
 
 import org.apache.commons.codec.binary.Base64;
+import org.celiac.datatype.GFUser;
 
 public class RestUtil implements java.io.Serializable {
 
@@ -266,6 +268,76 @@ public class RestUtil implements java.io.Serializable {
 		AutoCompleteSearch acs = new AutoCompleteSearch();
 		return acs.search(product, manufacture);
 
+	}
+        
+        public boolean validateInputUserFile(InputStream fileInputStream) throws Exception {
+
+		String userIdentity = null;
+		try {
+			
+
+			XLSReader xLSReader = new XLSReader();
+
+			
+
+			userIdentity = user.theUser.getFIRST_NAME() + " " + user.theUser.getLAST_NAME() + " (" + user.theUser.getUSER_ID() + ")";
+			
+			GFUser[] intoDB = xLSReader.readUsersWorkBook(fileInputStream);
+
+			DBWriter dBWriter = new DBWriter();
+
+			
+
+			try {
+				dBWriter.dropCompanyTable("TEMP_USERS");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			dBWriter.createUsersTable("TEMP_USERS");
+			dBWriter.insertUsersTable(intoDB, "TEMP_USERS");
+
+			dBWriter = new DBWriter();
+			try {
+				dBWriter.dropCompanyTable("USERS");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+
+			dBWriter.createUsersTable("USERS");
+			dBWriter.insertUsersTable(intoDB, "USERS");
+
+			try {
+				Pop3Email.postMen(PropertiesLoader.getProperties("data.upload.email.notification"),
+						"GFGuide - Database (users) Update Alert",
+						"Hi,<br><br>This is to let you know that GFGuide users database was just been updated successfully by user: "
+								+ userIdentity + ".<br><br>For your information.<br><br>Thanks,<br><br>GFGuide System.");
+				Pop3Email.postMen(PropertiesLoader.getProperties("data.upload.email.notification.admin"),
+						"GFGuide - Database (users) Update Alert",
+						"Hi,<br><br>This is to let you know that GFGuide users database was just been updated successfully by user: "
+								+ userIdentity + ".<br><br>For your information.<br><br>Thanks,<br><br>GFGuide System.");
+			} catch (Exception e) {
+				Logger.error("Failed to send email regard data update", e);
+			}
+
+		} catch (Exception e) {
+			try {
+				Pop3Email.postMen(PropertiesLoader.getProperties("data.upload.email.notification"),
+						"GFGuide - Database (users) Access Alert",
+						"Hi,<br><br>This is to let you know that an attempt was made to update the GFGuide users database by user: "
+								+ userIdentity + ".<br><br>For your information.<br><br>Thanks,<br><br>GFGuide System.");
+				Pop3Email.postMen(PropertiesLoader.getProperties("data.upload.email.notification.admin"),
+						"GFGuide - Database (users) Access Alert",
+						"Hi,<br><br>This is to let you know that an attempt was made to update the GFGuide users database by user: "
+								+ userIdentity + ".<br><br>For your information.<br><br>Thanks,<br><br>GFGuide System.");
+			} catch (Exception ee) {
+				Logger.error("Failed to send email regard data update", ee);
+			}
+			throw e;
+		}
+
+		return true;
 	}
 
 }
