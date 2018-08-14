@@ -29,7 +29,7 @@
 <%
 
 
-
+/*
 String CELIAC_MEMBER_ID=null;
 if (request.getParameter("CELIAC_MEMBER_ID") != null){
 		CELIAC_MEMBER_ID = (String)request.getParameter("CELIAC_MEMBER_ID").trim();
@@ -39,6 +39,7 @@ if (request.getParameter("CELIAC_MEMBER_ID") != null){
 	  CELIAC_MEMBER_ID = (String)session.getAttribute("CELIAC_MEMBER_ID");
 	  CELIAC_MEMBER_ID = User.cutLeadingZero(CELIAC_MEMBER_ID);
 }
+*/
 
 String USER_TZ=null;
 if (request.getParameter("USER_TZ") != null){
@@ -50,11 +51,13 @@ if (request.getParameter("USER_TZ") != null){
 
 try{
 
+    /*
 if (CELIAC_MEMBER_ID == null || ("").equals(CELIAC_MEMBER_ID)) {
 
    throw new Exception(org.celiac.util.TemplateReader.getHebrewMapWord("ANA_SAPEK") + " " + org.celiac.util.TemplateReader.getHebrewMapWord("CELIAC_MEMBER_ID") );
    
 }
+*/
 
 if (USER_TZ == null || ("").equals(USER_TZ)) {
 
@@ -62,13 +65,14 @@ if (USER_TZ == null || ("").equals(USER_TZ)) {
    
 }
 
-GFUser gfUser = User.getUser(CELIAC_MEMBER_ID.trim());
-if (gfUser == null) throw new Exception(org.celiac.util.TemplateReader.getHebrewMapWord("CELIAC_MEMBER_ID") + " " + org.celiac.util.TemplateReader.getHebrewMapWord("LO_KAYAM") );
-if (!(gfUser.getUSER_TZ().equals(USER_TZ))) throw new Exception(org.celiac.util.TemplateReader.getHebrewMapWord("USER_TZ") + " " + org.celiac.util.TemplateReader.getHebrewMapWord("LO_TOHAMIM") );
+//GFUser gfUser = User.getUser(CELIAC_MEMBER_ID.trim());
+GFUser gfUser = User.getUserByTZ(USER_TZ.trim());
+if (gfUser == null) throw new Exception(org.celiac.util.TemplateReader.getHebrewMapWord("USER_TZ") + " " + org.celiac.util.TemplateReader.getHebrewMapWord("LO_KAYAM") );
+//if (!(gfUser.getUSER_TZ().equals(USER_TZ))) throw new Exception(org.celiac.util.TemplateReader.getHebrewMapWord("USER_TZ") + " " + org.celiac.util.TemplateReader.getHebrewMapWord("LO_TOHAMIM") );
 if (gfUser.getEXPIRATION_DATE().getTime() < new java.util.Date().getTime()) {
 	if (!User.maybeUserIsNoExpire()){
   	java.text.DateFormat df = new java.text.SimpleDateFormat("d/M/yyyy"); 
-		throw new Exception(org.celiac.util.TemplateReader.getHebrewMapWord("CELIAC_MEMBER_ID") + ": '" + CELIAC_MEMBER_ID + "' " + org.celiac.util.TemplateReader.getHebrewMapWord("LO_BETOKEF") + ": " + df.format(gfUser.getEXPIRATION_DATE())  );
+		throw new Exception(org.celiac.util.TemplateReader.getHebrewMapWord("USER_TZ") + ": '" + USER_TZ + "' " + org.celiac.util.TemplateReader.getHebrewMapWord("LO_BETOKEF") + ": " + df.format(gfUser.getEXPIRATION_DATE())  );
 	}
 }
 //if (gfUser.getDID_BUY_THE_BOOK().equals("false")) throw new Exception(org.celiac.util.TemplateReader.getHebrewMapWord("ONLY_BUY_BOOK")  );

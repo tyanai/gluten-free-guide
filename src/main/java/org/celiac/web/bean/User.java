@@ -420,6 +420,24 @@ public class User implements java.io.Serializable {
 		return gfUser;
 
 	}
+        
+        public GFUser getUserByTZ(String uzerTZ) throws Exception {
+
+		GFUser gfUser = null;
+		try {
+			gfUser = DBQueryFactory.getDBHandler().getUserByGeneric(uzerTZ, "USER_TZ");
+		} catch (Exception e) {
+			Logger.error("Failed to find user with idetification id (TZ): " + uzerTZ, e);
+			throw e;
+		}
+		
+		if ((gfUser != null) && (this.theUser == null)) this.theUser = gfUser;
+		
+		
+		
+		return gfUser;
+
+	}
 
 	public void insertUser(GFUser gfUser) throws Exception {
 

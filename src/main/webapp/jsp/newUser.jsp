@@ -14,7 +14,7 @@
       
 <p align="center">
 
-<table bgcolor= "#f5f5e1" width="50%" border="1">
+<table bgcolor= "#f5f5e1" width="50%" border="1" style="max-width: 400px;">
 <td valign="center"><img src="../images/celiac_logo.jpg"></td>
 		
 <td>
@@ -64,12 +64,12 @@ if (request.getParameter("USER_TZ") != null){
 				<tr></tr>
 				
 				<tr class="textfieldHeb" >			
-					<td height="20" nowrap ><strong>:<%=org.celiac.util.TemplateReader.getHebrewMapWord("CELIAC_MEMBER_ID")%></strong></td>
+                                    <td height="20" nowrap ><strong><%=org.celiac.util.TemplateReader.getHebrewMapWord("CELIAC_MEMBER_ID")%>:</strong></br> <p style="font-size:11px;">(<%=org.celiac.util.TemplateReader.getHebrewMapWord("CELIAC_MEMBER_HELP_LINK")%> <strong><a href="http://www.celiac.org.il/userareas?stage=friends" target="_blank"><%=org.celiac.util.TemplateReader.getHebrewMapWord("CLICK_HERE_LINK")%></a></strong>)</p></td>
 					<tr><td><input type="text" class="textBoxB" name="CELIAC_MEMBER_ID" value="<%=CELIAC_MEMBER_ID%>"></td></tr>
 				</tr><tr></tr><tr></tr><tr></tr><tr></tr>
 				
 				<tr class="textfieldHeb" >			
-					<td height="20" nowrap><strong>:<%=org.celiac.util.TemplateReader.getHebrewMapWord("USER_TZ")%></strong></td>
+					<td height="20" nowrap><strong><%=org.celiac.util.TemplateReader.getHebrewMapWord("USER_TZ")%>:</strong></td>
 					<tr><td><input type="text" class="textBoxB" name="USER_TZ" value="<%=USER_TZ%>"></td></tr>
 				</tr><tr></tr><tr></tr><tr></tr><tr></tr>
 				

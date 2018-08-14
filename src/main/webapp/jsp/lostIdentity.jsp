@@ -14,7 +14,7 @@
       
 <p align="center">
 		
-<table bgcolor= "#f5f5e1" width="50%" border="1">
+<table bgcolor= "#f5f5e1" width="400px" border="1">
 <td valign="center"><img src="../images/celiac_logo.jpg"></td>
 		
 <td>
@@ -25,7 +25,7 @@ if (errorMessage == null) errorMessage = "";
 session.setAttribute("gfsmsNewUserError",null);
 	
 		
-
+/*
 String CELIAC_MEMBER_ID="";
 if (request.getParameter("CELIAC_MEMBER_ID") != null){
 		CELIAC_MEMBER_ID = (String)request.getParameter("CELIAC_MEMBER_ID");
@@ -33,6 +33,7 @@ if (request.getParameter("CELIAC_MEMBER_ID") != null){
 }else if (session.getAttribute("CELIAC_MEMBER_ID") != null){
 	  CELIAC_MEMBER_ID = (String)session.getAttribute("CELIAC_MEMBER_ID");
 }
+*/
 
 String USER_TZ="";
 if (request.getParameter("USER_TZ") != null){
@@ -63,10 +64,10 @@ if (request.getParameter("USER_TZ") != null){
 				</tr>
 				<tr></tr>
 				
-				<tr class="textfieldHeb" >			
-					<td height="20" nowrap ><strong>:<%=org.celiac.util.TemplateReader.getHebrewMapWord("CELIAC_MEMBER_ID")%></strong></td>
-					<tr><td><input type="text" class="textBoxB" name="CELIAC_MEMBER_ID" value="<%=CELIAC_MEMBER_ID%>"></td></tr>
-				</tr><tr></tr><tr></tr><tr></tr><tr></tr>
+				<!--tr class="textfieldHeb" >			
+					<td height="20" nowrap ><strong>:<=org.celiac.util.TemplateReader.getHebrewMapWord("CELIAC_MEMBER_ID")></strong></td>
+					<tr><td><input type="text" class="textBoxB" name="CELIAC_MEMBER_ID" value="<=CELIAC_MEMBER_ID>"></td></tr>
+				</tr><tr></tr><tr></tr><tr></tr><tr></tr-->
 				
 				<tr class="textfieldHeb" >			
 					<td height="20" nowrap><strong>:<%=org.celiac.util.TemplateReader.getHebrewMapWord("USER_TZ")%></strong></td>
