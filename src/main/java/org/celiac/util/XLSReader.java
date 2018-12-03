@@ -48,16 +48,17 @@ public class XLSReader {
 
             // get a reference to all the worksheets
             Logger.print("Getting all sheets:");
-            int i = 0;
+            
             HSSFSheet sheet = null;
             String sheetName = null;
-            while (true) {
-                try {
-                    sheet = wb.getSheetAt(i++);
-                    sheetName = wb.getSheetName(i - 1);
-                } catch (IndexOutOfBoundsException e) {
-                    break;
-                }
+            wb.getNumberOfSheets();
+            
+            for (int i=0;i<wb.getNumberOfSheets(); i++){
+            
+               
+                sheet = wb.getSheetAt(i);
+                sheetName = wb.getSheetName(i);
+               
                 Logger.print("Found sheet: '" + sheetName + "'");
                 // Capital letters
                 sheetName = sheetName.toUpperCase();
@@ -101,7 +102,11 @@ public class XLSReader {
                         PRODUCT[j] = new String(row.getCell((short) 1).getRichStringCellValue().getString());
                         GLUTEN_FREE[j] = new String(row.getCell((short) 2).getRichStringCellValue().getString());
                     } catch (Exception e) {
-                        Logger.info("####### Suspect for error " + row.getRowNum() + " In sheet:" + sheetName);
+                        try{
+                            Logger.print("####### Suspect for error " + row.getRowNum() + " In sheet:" + sheetName);
+                        }catch (Exception ee){
+                            Logger.print("####### Suspect for error In sheet:" + sheetName + " " + e.getMessage());
+                        }
                         CATAGORY[j] = "";
                         PRODUCT[j] = "";
                         GLUTEN_FREE[j] = "";
@@ -163,7 +168,7 @@ public class XLSReader {
             }
 
         } catch (Exception e) {
-            Logger.print("!!BANG!! xlCreate() : " + e);
+            Logger.print("!!BANG!! xlCreate() : " + e.getMessage());
             e.printStackTrace();
             throw e;
         }
@@ -292,7 +297,7 @@ public class XLSReader {
             }
 
         } catch (Exception e) {
-            Logger.print("!!BANG!! xlCreate() : " + e);
+            Logger.print("!!BANG!! xlCreate() : " + e.getMessage());
             e.printStackTrace();
             throw e;
         }
@@ -359,7 +364,7 @@ public class XLSReader {
             }
 
         } catch (Exception e) {
-            Logger.print("!!BANG!! xlCreate() : " + e);
+            Logger.print("!!BANG!! xlCreate() : " + e.getMessage());
             e.printStackTrace();
             throw e;
         }
